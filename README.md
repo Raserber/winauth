@@ -1,8 +1,9 @@
 # Windows Authenticator
 
-*WinAuth is a portable, open-source Authenticator for Windows that provides counter or time-based RFC 6238 authenticators and common implementations, such as the Google Authenticator. WinAuth can be used with many Bitcoin trading websites as well as games, supporting Battle.net (World of Warcraft, Hearthstone, Heroes of the Storm, Diablo), Guild Wars 2, Glyph (Rift and ArcheAge), WildStar, RuneScape, SWTOR and Steam.*
+From [winauth/winauth](https://github.com/winauth/winauth) :
+> *WinAuth is a portable, open-source Authenticator for Windows that provides counter or time-based RFC 6238 authenticators and common implementations, such as the Google Authenticator. WinAuth can be used with many Bitcoin trading websites as well as games, supporting Battle.net (World of Warcraft, Hearthstone, Heroes of the Storm, Diablo), Guild Wars 2, Glyph (Rift and ArcheAge), WildStar, RuneScape, SWTOR and Steam.*
 
-This fork of [winauth](https://github.com/winauth/winauth), the possibility to export TOTP is disable
+This repository is a fork of [winauth](https://github.com/winauth/winauth). The main difference is that the export feature has been disabled
 
 ## Download Latest Stable Version
 
