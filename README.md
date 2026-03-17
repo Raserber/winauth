@@ -2,51 +2,31 @@
 
 *WinAuth is a portable, open-source Authenticator for Windows that provides counter or time-based RFC 6238 authenticators and common implementations, such as the Google Authenticator. WinAuth can be used with many Bitcoin trading websites as well as games, supporting Battle.net (World of Warcraft, Hearthstone, Heroes of the Storm, Diablo), Guild Wars 2, Glyph (Rift and ArcheAge), WildStar, RuneScape, SWTOR and Steam.*
 
-----
+This fork of [winauth](https://github.com/winauth/winauth), the possibility to export TOTP is disable
 
-## Download Latest Beta Version
-
-The latest beta version is WinAuth 3.6 and is available from the [releases](https://github.com/winauth/winauth/releases) page. Please do not use this version unless you are testing new features.
-
-This will likely be the last version of WinAuth when released as 3.7. It has reached the end of its useful life and requires a massive UI overhaul. My thanks to everyone who has used WinAuth, provided fixes and useful suggestions.
-
-----
-
-## Download Latest Stable Version (WinAuth 3.5)
+## Download Latest Stable Version
 
 WinAuth provides an alternative solution to combine various two-factor authenticator services in one convenient place.
 
-This is the latest stable version and can be downloaded from the [releases](https://github.com/winauth/winauth/releases) page, or directly from:
-
-[Latest Version (WinAuth-3.5.1)](https://github.com/winauth/winauth/releases/download/3.5.1/WinAuth-3.5.1.zip)
-
-There is also a [.Net 3.5 build of WinAuth](https://github.com/winauth/winauth/releases/download/3.5.1/WinAuth-3.5.1-NET35.zip) that can be run on Windows 7 installations "out of the box".
+This is the latest stable version and can be downloaded from the [releases](https://github.com/Raserber/winauth/releases) page
 
 <img src="https://winauth.github.io/winauth/images/winauth3-preview.png" alt="WinAuth3 Preview" />
 
 Features include:
 
   * Support for time-based RFC 6238 authenticators (e.g. Google Authenticator) and HOTP counter-based authenticators
-  * Supports Battle.net (World of Warcraft, Hearthstone, Heroes of the Storm, Diablo III), GuildWars 2, Trion / Glyph (Rift, ArcheAge), RuneScape, WildStar, SWTOR and Steam
-  * Supports Steam's SteamGuard and trading confirmations
-  * Supports many Bitcoin trading websites such as Coinbase, Gemini, Circle, Bitstamp, BTC-e, Cryptsy
   * Displays multiple authenticators simultaneously
   * Codes displayed and refreshed automatically or on demand
   * Data is protected with your password, locked to Windows machine or account, or a YubiKey
   * Additional password protection per authenticator
-  * Restore features for supported authenticators, e.g. Battle.net and Rift
+  * Restore features for supported authenticators
   * Selection of standard or custom icons
   * Hot-key binding with standard or custom actions, such as code notification, keyboard input, and copy to clipboard
   * Portable mode preventing changes to other files or registry settings
-  * Import and export in UriKeyFormat and from Authenticator Plus for Android 
-
-#### Updates
-
-  * 3.5.1 - Issue#366: fix spamming notifications when Steam is down. Hide confim/cancel all buttons on login.
 
 ### How To Use
 
-Use the following link to download the latest version of WinAuth, or go to the [Releases](https://github.com/winauth/winauth/releases) page.
+Use the following link to download the latest version of WinAuth, or go to the [Releases](https://github.com/Raserber/winauth/releases) page.
 
 Requires [Microsoft .Net 4.5](http://www.microsoft.com/en-us/download/details.aspx?id=30653)
 
@@ -61,25 +41,9 @@ To use:
 
 To compile and build from source:
   * Download source code file or clone project
-  * Requires Microsoft Visual Studio 2015
+  * Requires Microsoft Visual Studio 2015 (or higher)
   * any other dependencies are included in the source tree in the 3rd Party folder
   * Use [ILMerge](http://research.microsoft.com/en-us/people/mbarnett/ilmerge.aspx ) to combine assemblies into one single exe file
-
-### New Features
-
-Version 3.5 includes Steam trade confirmations.
-
-<img src="https://winauth.github.io/winauth/images/2013/07/steamconf1.png" alt="steamconf" class="aligncenter" />
-
-If you registered SteamGuard with WinAuth 3.3.7 or earlier, you will need to remove it from your Steam account and add it again. This is because WinAuth 3.3 only kept information relevant to generating the SteamGuard authenticator codes, however, confirmations needs more information.
-
-You can go into the normal Steam client, choose Account Details, then click "Manage Steam Guard". Click the Remove Authenticator button and enter the recovery code (aka revocation code - found from right-clicking in WinAuth).
-
-Once the new authenticator is added, you will have an extra option when right-clicking called "Confirmations...". This will login with your username/password and show your current trade confirmations. You can click to view more details, and use the buttons to accept or reject them.
-
-If you choose "remember me", WinAuth will keep you logged in (does not keep your username/password) so you can quickly go into Confirmations again.
-
-----
 
 ## COMMON QUESTIONS
 
@@ -109,30 +73,20 @@ There are no other executables installed on your machine. There is no installer 
 
 WinAuth source code is uploaded to GitHub at http://github.com/winauth/winauth and pre-built binaries are in [releases](https://github.com/winauth/winauth/releases). It is not published anywhere else, so please do not download any other programs claiming to be WinAuth.
 
+This fork is an unofficial version of [http://github.com/winauth/winauth](http://github.com/winauth/winauth)
+
 #### Where does WinAuth save my authenticator information?
 
 Unlike some other authenticator applications, WinAuth does not store/send your information to any 3rd party servers. Your authenticator information is saved by default in your account roaming profile, i.e. c:\Users\<username>\AppData\Roaming\WinAuth. However, this file can be moved anywhere and passed into WinAuth when run.
 
 ----
 
-## More Information
-
-All trademarks are recognised, including but not limited to:
-
-  * Blizzard, Battle.net, World of Warcraft, Starcraft, Diablo
-  * ArenaNet, Guild Wars 2
-  * Trion, Rift
-  * Google
-  * Microsoft
-  * Steam
-
-----
-
 ## Author
 
 WinAuth was written by Colin Mackie. Copyright (C) 2010-2017.
+This version is modified by [Raserber](http://github.com/Raserber/winauth) (2026)
 
-Bitcoin donations can be sent to `1C4bMkMATViiWYsmJSDUx2MruWM785C36Y`
+Bitcoin donations can be sent to Colin Mackie at `1C4bMkMATViiWYsmJSDUx2MruWM785C36Y`
 
 ----
 
