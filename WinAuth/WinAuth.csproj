@@ -281,12 +281,6 @@
     <Compile Include="GetPGPKeyForm.designer.cs">
       <DependentUpon>GetPGPKeyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ExportForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ExportForm.Designer.cs">
-      <DependentUpon>ExportForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="GetPasswordForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -437,9 +431,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GetPGPKeyForm.resx">
       <DependentUpon>GetPGPKeyForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ExportForm.resx">
-      <DependentUpon>ExportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GetPasswordForm.resx">
       <DependentUpon>GetPasswordForm.cs</DependentUpon>

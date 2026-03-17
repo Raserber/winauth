@@ -1686,113 +1686,7 @@ namespace WinAuth
 				WinAuthAuthenticator winauthauthenticator = new WinAuthAuthenticator();
 				bool added = false;
 
-				if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.BattleNet)
-				{
-					int existing = 0;
-					string name;
-					do
-					{
-						name = "Battle.net" + (existing != 0 ? " (" + existing + ")" : string.Empty);
-						existing++;
-					} while (authenticatorList.Items.Cast<AuthenticatorListitem>().Where(a => a.Authenticator.Name == name).Count() != 0);
-
-					winauthauthenticator.Name = name;
-					winauthauthenticator.AutoRefresh = false;
-
-					// create the Battle.net authenticator
-					AddBattleNetAuthenticator form = new AddBattleNetAuthenticator();
-					form.Authenticator = winauthauthenticator;
-					added = (form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK);
-				}
-				else if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.Trion)
-				{
-					// create the Trion authenticator
-					int existing = 0;
-					string name;
-					do
-					{
-						name = "Trion" + (existing != 0 ? " (" + existing + ")" : string.Empty);
-						existing++;
-					} while (authenticatorList.Items.Cast<AuthenticatorListitem>().Where(a => a.Authenticator.Name == name).Count() != 0);
-
-					winauthauthenticator.Name = name;
-					winauthauthenticator.AutoRefresh = false;
-
-					AddTrionAuthenticator form = new AddTrionAuthenticator();
-					form.Authenticator = winauthauthenticator;
-					added = (form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK);
-				}
-				else if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.Steam)
-				{
-					// create the authenticator
-					int existing = 0;
-					string name;
-					do
-					{
-						name = "Steam" + (existing != 0 ? " (" + existing + ")" : string.Empty);
-						existing++;
-					} while (authenticatorList.Items.Cast<AuthenticatorListitem>().Where(a => a.Authenticator.Name == name).Count() != 0);
-
-					winauthauthenticator.Name = name;
-					winauthauthenticator.AutoRefresh = false;
-
-					AddSteamAuthenticator form = new AddSteamAuthenticator();
-					form.Authenticator = winauthauthenticator;
-					added = (form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK);
-				}
-				else if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.Google)
-				{
-					// create the Google authenticator
-					// add the new authenticator
-					int existing = 0;
-					string name;
-					do
-					{
-						name = "Google" + (existing != 0 ? " (" + existing + ")" : string.Empty);
-						existing++;
-					} while (authenticatorList.Items.Cast<AuthenticatorListitem>().Where(a => a.Authenticator.Name == name).Count() != 0);
-					winauthauthenticator.Name = name;
-					winauthauthenticator.AutoRefresh = false;
-
-					AddGoogleAuthenticator form = new AddGoogleAuthenticator();
-					form.Authenticator = winauthauthenticator;
-					added = (form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK);
-				}
-				else if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.GuildWars)
-				{
-					// create the GW2 authenticator
-					int existing = 0;
-					string name;
-					do
-					{
-						name = "GuildWars" + (existing != 0 ? " (" + existing + ")" : string.Empty);
-						existing++;
-					} while (authenticatorList.Items.Cast<AuthenticatorListitem>().Where(a => a.Authenticator.Name == name).Count() != 0);
-					winauthauthenticator.Name = name;
-					winauthauthenticator.AutoRefresh = false;
-
-					AddGuildWarsAuthenticator form = new AddGuildWarsAuthenticator();
-					form.Authenticator = winauthauthenticator;
-					added = (form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK);
-				}
-				else if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.Microsoft)
-				{
-					// create the Microsoft authenticator
-					int existing = 0;
-					string name;
-					do
-					{
-						name = "Microsoft" + (existing != 0 ? " (" + existing + ")" : string.Empty);
-						existing++;
-					} while (authenticatorList.Items.Cast<AuthenticatorListitem>().Where(a => a.Authenticator.Name == name).Count() != 0);
-					winauthauthenticator.Name = name;
-					winauthauthenticator.AutoRefresh = false;
-
-					AddMicrosoftAuthenticator form = new AddMicrosoftAuthenticator();
-					form.Authenticator = winauthauthenticator;
-					added = (form.ShowDialog(this) == System.Windows.Forms.DialogResult.OK);
-				}
-				else if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.RFC6238_TIME)
+				if (registeredauth.AuthenticatorType == RegisteredAuthenticator.AuthenticatorTypes.RFC6238_TIME)
 				{
 					// create the Google authenticator
 					// add the new authenticator
@@ -2206,21 +2100,9 @@ namespace WinAuth
 
 			menu.Items.Add(new ToolStripSeparator());
 
-			menuitem = new ToolStripMenuItem(strings.MenuExport);
-			menuitem.Name = "exportOptionsMenuItem";
-			menuitem.Click += exportOptionsMenuItem_Click;
-			menu.Items.Add(menuitem);
-
-			menu.Items.Add(new ToolStripSeparator());
-
 			if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed == false)
 			{
-				menuitem = new ToolStripMenuItem(strings.MenuUpdates + "...");
-				menuitem.Name = "aboutUpdatesMenuItem";
-				menuitem.Click += aboutUpdatesMenuItem_Click;
-				menu.Items.Add(menuitem);
 
-				menu.Items.Add(new ToolStripSeparator());
 			}
 
 			menuitem = new ToolStripMenuItem(strings.MenuAbout + "...");
@@ -2642,41 +2524,6 @@ namespace WinAuth
 		private void autoSizeOptionsMenuItem_Click(object sender, EventArgs e)
 		{
 			this.Config.AutoSize = !this.Config.AutoSize;
-		}
-
-		/// <summary>
-		/// Click the Export menu
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void exportOptionsMenuItem_Click(object sender, EventArgs e)
-		{
-			// confirm current password
-			if ((this.Config.PasswordType & Authenticator.PasswordTypes.Explicit) != 0)
-			{
-				bool invalidPassword = false;
-				while (true)
-				{
-					GetPasswordForm checkform = new GetPasswordForm();
-					checkform.InvalidPassword = invalidPassword;
-					var result = checkform.ShowDialog(this);
-					if (result == DialogResult.Cancel)
-					{
-						return;
-					}
-					if (this.Config.IsPassword(checkform.Password) == true)
-					{
-						break;
-					}
-					invalidPassword = true;
-				}
-			}
-
-			ExportForm exportform = new ExportForm();
-			if (exportform.ShowDialog(this) == System.Windows.Forms.DialogResult.OK)
-			{
-				WinAuthHelper.ExportAuthenticators(this, this.Config, exportform.ExportFile, exportform.Password, exportform.PGPKey);
-			}
 		}
 
 		/// <summary>

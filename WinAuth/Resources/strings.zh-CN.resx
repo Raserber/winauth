@@ -225,9 +225,6 @@ Would you like to import your previous authenticator now?</value>
 	<data name="MenuExit" xml:space="preserve">
     <value>退出</value>
   </data>
-	<data name="MenuExport" xml:space="preserve">
-    <value>导出...</value>
-  </data>
 	<data name="MenuImportText" xml:space="preserve">
     <value>导入...</value>
   </data>

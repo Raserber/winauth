@@ -1037,35 +1037,6 @@ namespace WinAuth
 			//
 			this.ContextMenuStrip.Items.Add(new ToolStripSeparator());
 			//
-			menuitem = new ToolStripMenuItem(strings.ShowSerialAndRestoreCode + "...");
-			menuitem.Name = "showRestoreCodeMenuItem";
-			menuitem.Click += ContextMenu_Click;
-			this.ContextMenuStrip.Items.Add(menuitem);
-			//
-			menuitem = new ToolStripMenuItem(strings.ShowSecretKey + "...");
-			menuitem.Name = "showGoogleSecretMenuItem";
-			menuitem.Click += ContextMenu_Click;
-			this.ContextMenuStrip.Items.Add(menuitem);
-			//
-			menuitem = new ToolStripMenuItem(strings.ShowSerialKeyAndDeviceId + "...");
-			menuitem.Name = "showTrionSecretMenuItem";
-			menuitem.Click += ContextMenu_Click;
-			this.ContextMenuStrip.Items.Add(menuitem);
-			//
-			menuitem = new ToolStripMenuItem(strings.ShowRevocation + "...");
-			menuitem.Name = "showSteamSecretMenuItem";
-			menuitem.Click += ContextMenu_Click;
-			this.ContextMenuStrip.Items.Add(menuitem);
-			//
-			this.ContextMenuStrip.Items.Add(new ToolStripSeparator { Name = "steamSeperator" });
-			//
-			menuitem = new ToolStripMenuItem(strings.ConfirmTrades + "...");
-			menuitem.Name = "showSteamTradesMenuItem";
-			menuitem.Click += ContextMenu_Click;
-			this.ContextMenuStrip.Items.Add(menuitem);
-			//
-			this.ContextMenuStrip.Items.Add(new ToolStripSeparator());
-			//
 			menuitem = new ToolStripMenuItem(strings.Delete);
 			menuitem.Name = "deleteMenuItem";
 			menuitem.Click += ContextMenu_Click;
@@ -1192,27 +1163,6 @@ namespace WinAuth
 			menuitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "showCodeMenuItem").FirstOrDefault() as ToolStripMenuItem;
 			menuitem.Visible = !auth.AutoRefresh;
 			//
-			menuitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "showRestoreCodeMenuItem").FirstOrDefault() as ToolStripMenuItem;
-			menuitem.Visible = (auth.AuthenticatorData is BattleNetAuthenticator);
-			//
-			menuitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "showGoogleSecretMenuItem").FirstOrDefault() as ToolStripMenuItem;
-			menuitem.Visible = (auth.AuthenticatorData is GoogleAuthenticator || auth.AuthenticatorData is HOTPAuthenticator);
-			//
-			menuitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "showTrionSecretMenuItem").FirstOrDefault() as ToolStripMenuItem;
-			menuitem.Visible = (auth.AuthenticatorData is TrionAuthenticator);
-			//
-			menuitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "showSteamSecretMenuItem").FirstOrDefault() as ToolStripMenuItem;
-			menuitem.Visible = (auth.AuthenticatorData is SteamAuthenticator);
-			menuitem.Enabled = (auth.AuthenticatorData is SteamAuthenticator && string.IsNullOrEmpty(((SteamAuthenticator)auth.AuthenticatorData).SteamData) == false);
-			//
-			sepitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "steamSeperator").FirstOrDefault() as ToolStripItem;
-			sepitem.Visible = (auth.AuthenticatorData is SteamAuthenticator);
-			//
-			menuitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "showSteamTradesMenuItem").FirstOrDefault() as ToolStripMenuItem;
-			menuitem.Visible = (auth.AuthenticatorData is SteamAuthenticator);
-			menuitem.Enabled = (auth.AuthenticatorData is SteamAuthenticator && string.IsNullOrEmpty(((SteamAuthenticator)auth.AuthenticatorData).SteamData) == false);
-			//
-			menuitem = menu.Items.Cast<ToolStripItem>().Where(i => i.Name == "autoRefreshMenuItem").FirstOrDefault() as ToolStripMenuItem;
 			menuitem.Visible = !(auth.AuthenticatorData is HOTPAuthenticator);
 			menuitem.CheckState = (auth.AutoRefresh == true ? CheckState.Checked : CheckState.Unchecked);
 			menuitem.Enabled = (auth.AuthenticatorData.RequiresPassword == false && auth.AuthenticatorData.PasswordType != Authenticator.PasswordTypes.Explicit);
