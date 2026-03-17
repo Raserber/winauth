@@ -191,7 +191,7 @@ Some diagnostic information has been recorded and saved that might help track do
 
 It would help if you can submit this information so we can investigate the crash and try and fix the issue. This information does include information about your authenticators but is only used by the WinAuth developers solely for the purpose of investigating bugs and error reports. It does not include any personal or identifying information. Any information sent has been encrypted using PGP and cannot be read by anyone else.
 
-If you are happy to send this information please either click Send Error Report or you can click Show Details and manually copy the text and file a bug report at https://github.com/winauth/winauth/issues.</value>
+If you are happy to send this information please either click Send Error Report or you can click Show Details and manually copy the text and file a bug report at https://github.com/Raserber/winauth/issues.</value>
   </data>
   <data name="_ExceptionForm_quitButton_" xml:space="preserve">
     <value>Quit</value>
@@ -409,9 +409,10 @@ Would you like to import your previous authenticator now?</value>
   <data name="MenuStartWithWindows" xml:space="preserve">
     <value>Start With Windows</value>
   </data>
-  <data name="MenuUpdates" xml:space="preserve">
+	<!--
+	<data name="MenuUpdates" xml:space="preserve">
     <value>Check for updates...</value>
-  </data>
+  </data>-->
   <data name="MenuUseSystemTrayIcon" xml:space="preserve">
     <value>Use System Tray Icon</value>
   </data>
